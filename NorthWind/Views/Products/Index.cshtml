@@ -1,0 +1,89 @@
+﻿@model IEnumerable<NorthWind.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All products</h2>
+<br />
+<p style="text-align:right">
+    @Html.ActionLink("Create New", "Create",null,new { @class="btn btn-success"})
+</p>
+<br />
+
+@if(Model.Count() == 0)
+{
+    <h2>You dont have any products. Create new from button above</h2>
+}
+
+<div class="row">
+
+
+        @foreach (var item in Model)
+        {
+        <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Product Name : @Html.DisplayFor(modelItem => item.ProductName)</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5>@Html.DisplayNameFor(model => model.Category.CategoryName)</h5>
+                                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5>
+                                    @Html.DisplayNameFor(model =>
+                                model.Supplier.CompanyName)
+                                </h5>
+                                @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5>
+                                    @Html.DisplayNameFor(model => model.UnitPrice)
+                                </h5>
+                                @Html.DisplayFor(modelItem => item.UnitPrice)
+                            </div>
+                        </div>
+
+                    </div>
+                   
+                   
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5>
+                                    @Html.DisplayNameFor(model => model.Discontinued)
+                                </h5>
+                                @Html.DisplayFor(modelItem => item.Discontinued)
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductId }, new { @class = "btn btn-primary" }) 
+                    <a href="@Url.Action("Edit", "Products", new { id = item.ProductId })" style="color:cornflowerblue;margin-left:24px"><span class="glyphicon glyphicon-pencil"></span></a>
+                    |
+                    <a href="@Url.Action("Delete", "Products", new { id = item.ProductId })" style="color:grey"><span class="glyphicon glyphicon-trash"></span></a>
+
+                </div>
+            </div>
+        </div>
+            </div>
+        }
+
+    </div>
+

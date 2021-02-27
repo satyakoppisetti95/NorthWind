@@ -1,0 +1,56 @@
+﻿@model NorthWind.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <table class="table table-striped">
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ProductName)</td>
+            <td>@Html.DisplayFor(model => model.ProductName)</td>
+        </tr>
+        <tr>
+            <td> @Html.DisplayNameFor(model => model.Category.CategoryName)</td>
+            <td>@Html.DisplayFor(model => model.Category.CategoryName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Supplier.CompanyName)</td>
+            <td>@Html.DisplayFor(model => model.Supplier.CompanyName)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.QuantityPerUnit)</td>
+            <td>@Html.DisplayFor(model => model.QuantityPerUnit)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.UnitPrice)</td>
+            <td>@Html.DisplayFor(model => model.UnitPrice)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.UnitsInStock)</td>
+            <td>@Html.DisplayFor(model => model.UnitsInStock)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.UnitsOnOrder)</td>
+            <td>@Html.DisplayFor(model => model.UnitsOnOrder)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ReorderLevel)</td>
+            <td>@Html.DisplayFor(model => model.ReorderLevel)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Discontinued)</td>
+            <td>@Html.DisplayFor(model => model.Discontinued)</td>
+        </tr>
+    </table>
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId },new { @class = "btn btn-primary" }) <br /><br />
+    @Html.ActionLink("Back to List", "Index")
+</p>

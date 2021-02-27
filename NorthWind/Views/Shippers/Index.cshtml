@@ -1,0 +1,42 @@
+﻿@model IEnumerable<NorthWind.Models.Shipper>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Shippers</h2>
+
+<p style="text-align:right">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table  class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+           
+
+            @Html.ActionLink("Details", "Details", new { id = item.ShipperId }, new { @class = "btn btn-primary" }) | 
+            <a href="@Url.Action("Edit", "Shippers", new { id = item.ShipperId })" style="color:cornflowerblue"><span class="glyphicon glyphicon-pencil"></span></a>
+            |
+            <a href="@Url.Action("Delete", "Shippers", new { id = item.ShipperId })" style="color:grey"><span class="glyphicon glyphicon-trash"></span></a>
+        </td>
+    </tr>
+}
+
+</table>

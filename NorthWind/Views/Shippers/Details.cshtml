@@ -1,0 +1,46 @@
+﻿@model NorthWind.Models.Shipper
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-sm-1"></div>
+        <div class="col-lg-4 col-sm-10">
+            <h2>Details</h2>
+            <h4>Shipper</h4>
+            <hr />
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.CompanyName)</td>
+                            <td>@Html.DisplayFor(model => model.CompanyName)</td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Phone)</td>
+                            <td>@Html.DisplayFor(model => model.Phone)</td>
+                        </tr>
+
+
+
+
+                    </table>
+                    </div>
+                </div>
+
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ShipperId }, new { @class = "btn btn-primary" }) <br /><br />
+
+                    <a href='@Url.Action("Index","Shippers")'><span class="glyphicon glyphicon-chevron-left"></span> Back to List</a>
+                </p>
+            </div>
+            <div class="col-lg-4 col-sm-1"></div>
+        </div>
+    
+</div>
+
